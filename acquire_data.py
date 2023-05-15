@@ -2,6 +2,8 @@ from gnews import GNews
 import os
 from newspaper import Article
 import csv
+import pandas as pd
+import datetime
 
 topics=['accident']
 topics=['accident','assassination','birth','coup','eruption','explosion','fire','game','hurricane','miracle','shooting','suicide','wedding']
