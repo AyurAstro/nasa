@@ -22,3 +22,5 @@ Currently we are considering only in English the following topics and from Googl
 To suggest new topics and languages, etc., contact us here: https://www.ayurastro.com/contact.html#/
 
 All text copyrights are held within the article urls.
+
+Explanatory paper: https://www.scribd.com/document/424897774/news-aggregator-service-for-astrology
