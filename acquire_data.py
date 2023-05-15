@@ -1,3 +1,5 @@
+#this is run daily
+
 from gnews import GNews
 import os
 from newspaper import Article
