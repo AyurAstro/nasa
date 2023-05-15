@@ -1,0 +1,205 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      7813,        197]
+NotebookOptionsPosition[      7231,        180]
+NotebookOutlinePosition[      7676,        197]
+CellTagsIndexPosition[      7633,        194]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"topics", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<accident\>\"", ",", "\"\<assassination\>\"", ",", "\"\<birth\>\"", 
+     ",", "\"\<coup\>\"", ",", "\"\<eruption\>\"", ",", "\"\<explosion\>\"", 
+     ",", "\"\<fire\>\"", ",", "\"\<game\>\"", ",", "\"\<hurricane\>\"", ",", 
+     "\"\<miracle\>\"", ",", "\"\<shooting\>\"", ",", "\"\<suicide\>\"", ",", 
+     "\"\<wedding\>\""}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8931028457552347`*^9, 3.893102943762892*^9}, 
+   3.89310400995509*^9},
+ CellLabel->
+  "In[351]:=",ExpressionUUID->"3b4b77f2-2e17-46c0-a134-32bd468f94ed"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{"\"\</home/rko/Documents/Thonny/NASA/general_\>\"", "<>", 
+        RowBox[{"topics", "[", 
+         RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<.csv\>\""}], ",", 
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"topics", "[", 
+           RowBox[{"[", "t", "]"}], "]"}], ",", "\"\<date\>\"", ",", 
+          "\"\<time\>\"", ",", "\"\<place\>\"", ",", "\"\<url\>\"", ",", 
+          "\"\<date published\>\""}], "}"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", 
+       RowBox[{"Length", "[", "topics", "]"}]}], "}"}]}], "]"}], ";"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.893104015399518*^9, 3.893104182487019*^9}, 
+   3.893106398457156*^9},ExpressionUUID->"bebb46d3-6f55-40a3-b96c-\
+baed53a127ec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"t", "=", "1"}], ",", 
+    RowBox[{"t", "<=", 
+     RowBox[{"Length", "[", "topics", "]"}]}], ",", 
+    RowBox[{"t", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"today", "=", 
+      RowBox[{"Import", "[", 
+       RowBox[{"\"\</home/rko/Documents/Thonny/NASA/today_\>\"", "<>", 
+        RowBox[{"topics", "[", 
+         RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<.csv\>\""}], "]"}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"general", "=", 
+      RowBox[{"Import", "[", 
+       RowBox[{"\"\</home/rko/Documents/Thonny/NASA/general_\>\"", "<>", 
+        RowBox[{"topics", "[", 
+         RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<.csv\>\""}], "]"}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "<=", 
+        RowBox[{"Length", "[", "today", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"text", "=", 
+         RowBox[{"today", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2"}], "]"}], "]"}]}], ";", 
+        RowBox[{"url", "=", 
+         RowBox[{"today", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "3"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"datepub", "=", 
+         RowBox[{
+          RowBox[{"Interpreter", "[", "\"\<DateTime\>\"", "]"}], "[", 
+          RowBox[{"today", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", 
+             RowBox[{"-", "1"}]}], "]"}], "]"}], "]"}]}], ";", 
+        RowBox[{"datepub1", "=", 
+         RowBox[{"DateString", "[", 
+          RowBox[{
+           RowBox[{"DatePlus", "[", 
+            RowBox[{"datepub", ",", "1"}], "]"}], ",", "\"\<Date\>\""}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"time", "=", 
+         RowBox[{"FindTextualAnswer", "[", 
+          RowBox[{"text", ",", 
+           RowBox[{"\"\<At what time was the \>\"", "<>", 
+            RowBox[{"topics", "[", 
+             RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<?\>\""}]}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"date", "=", 
+         RowBox[{"FindTextualAnswer", "[", 
+          RowBox[{"text", ",", 
+           RowBox[{"\"\<On what day was the \>\"", "<>", 
+            RowBox[{"topics", "[", 
+             RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<?\>\""}]}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"place", "=", 
+         RowBox[{"FindTextualAnswer", "[", 
+          RowBox[{"text", ",", 
+           RowBox[{"\"\<In what city was the \>\"", "<>", 
+            RowBox[{"topics", "[", 
+             RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<?\>\""}]}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"time1", "=", 
+         RowBox[{
+          RowBox[{"Interpreter", "[", "\"\<ComputedTime\>\"", "]"}], "[", 
+          "time", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"date1", "=", 
+         RowBox[{
+          RowBox[{"Interpreter", "[", "\"\<ComputedDate\>\"", "]"}], "[", " ", 
+          RowBox[{"date", "<>", "\"\< before \>\"", "<>", "datepub1"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"place1", "=", " ", 
+         RowBox[{
+          RowBox[{"Interpreter", "[", "\"\<ComputedCity\>\"", "]"}], "[", 
+          "place", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"DateObjectQ", "[", "date1", "]"}], "&&", 
+           RowBox[{"TimeObjectQ", "[", "time1", "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"line1", "=", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"DateString", "[", 
+               RowBox[{"date1", ",", "\"\<ISODate\>\""}], "]"}], ",", 
+              RowBox[{"DateString", "[", 
+               RowBox[{"time1", ",", "\"\<Time\>\""}], "]"}], ",", 
+              RowBox[{"InputForm", "[", "place1", "]"}], ",", "url", ",", 
+              "datepub"}], "}"}]}], ";", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"general", ",", "line1"}], "]"}]}]}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], ";", 
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{"\"\</home/rko/Documents/Thonny/NASA/general_\>\"", "<>", 
+        RowBox[{"topics", "[", 
+         RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<.csv\>\""}], ",", 
+       RowBox[{"DeleteDuplicates", "[", "general", "]"}]}], "]"}]}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.893102044830138*^9, 3.893102073293404*^9}, {
+   3.893103329438266*^9, 3.8931037682689466`*^9}, {3.89310380916854*^9, 
+   3.893103994875628*^9}, 3.89310410389678*^9, {3.893104229504455*^9, 
+   3.893104340779771*^9}, {3.893104379079218*^9, 3.8931044116486263`*^9}, {
+   3.893104474764011*^9, 3.893104653832776*^9}, {3.893104697216547*^9, 
+   3.8931047406186123`*^9}, {3.8931047780315523`*^9, 3.8931047804451103`*^9}, 
+   3.893105449035372*^9, {3.893105526631597*^9, 3.893105543536471*^9}, 
+   3.893106183605599*^9},
+ CellLabel->
+  "In[364]:=",ExpressionUUID->"533f59b1-b9de-40dd-8222-b3faffb45239"]
+},
+WindowSize->{860.25, 1028.25},
+WindowMargins->{{Automatic, 289.5}, {Automatic, 96}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (February 2, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"dea7bd5d-6d44-4315-9a01-e715d466138a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 620, 13, 51, "Input",ExpressionUUID->"3b4b77f2-2e17-46c0-a134-32bd468f94ed"],
+Cell[1184, 35, 892, 23, 54, "Input",ExpressionUUID->"bebb46d3-6f55-40a3-b96c-baed53a127ec"],
+Cell[2079, 60, 5148, 118, 439, "Input",ExpressionUUID->"533f59b1-b9de-40dd-8222-b3faffb45239"]
+}
+]
+*)
+
