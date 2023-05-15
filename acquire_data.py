@@ -1,10 +1,10 @@
 #this is run daily
-from gnews import GNews
 import os
-import openai
 import csv
-import pandas as pd
 import datetime
+import openai
+import pandas as pd
+from gnews import GNews
 
 openai.api_key = 'redacted'
 
@@ -24,7 +24,7 @@ for topic in topics:
                 text=article.text
                 response = openai.Completion.create(
                   model="text-curie-001",
-                  prompt="In the following text, tell me  in what city the "+topic+" took place, on what day, and at what time.\n\n"+text,
+                  prompt="In the following text, tell me  in what place the "+topic+" took place, on what day, and at what time.\n\n"+text,
                   temperature=0,
                   max_tokens=60,
                   top_p=1,
