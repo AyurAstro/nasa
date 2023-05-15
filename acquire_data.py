@@ -1,15 +1,15 @@
 #this is run daily
-
 from gnews import GNews
 import os
-from newspaper import Article
+import openai
 import csv
 import pandas as pd
 import datetime
 
-topics=['accident']
+openai.api_key = 'redacted'
+
 topics=['accident','assassination','birth','coup','eruption','explosion','fire','game','hurricane','miracle','shooting','suicide','wedding']
-google_news = GNews(language='en', period='24h')
+google_news = GNews(language='en', period='1d')
 
 for topic in topics:
     
@@ -22,7 +22,16 @@ for topic in topics:
             try:
                 article = google_news.get_full_article(url)
                 text=article.text
-                line=[topic,text,url,published_date]
+                response = openai.Completion.create(
+                  model="text-curie-001",
+                  prompt="In the following text, tell me  in what city the "+topic+" took place, on what day, and at what time.\n\n"+text,
+                  temperature=0,
+                  max_tokens=60,
+                  top_p=1,
+                  frequency_penalty=0.5,
+                  presence_penalty=0
+                )
+                line=[topic,text,url,published_date,response["choices"][0]["text"]]
                 writer.writerow(line)
             except:
                 print('error')
