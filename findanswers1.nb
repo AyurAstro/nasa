@@ -1,0 +1,525 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     24390,        517]
+NotebookOptionsPosition[     23546,        497]
+NotebookOutlinePosition[     23975,        514]
+CellTagsIndexPosition[     23932,        511]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", "\"\</home/rko/Documents/Thonny/NASA\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.893348362459148*^9, 
+  3.893348397547192*^9}},ExpressionUUID->"acc3a87d-815d-4f68-8050-\
+98f3e161a805"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"topics", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<accident\>\"", ",", "\"\<assassination\>\"", ",", "\"\<birth\>\"", 
+     ",", "\"\<coup\>\"", ",", "\"\<eruption\>\"", ",", "\"\<explosion\>\"", 
+     ",", "\"\<fire\>\"", ",", "\"\<game\>\"", ",", "\"\<hurricane\>\"", ",", 
+     "\"\<miracle\>\"", ",", "\"\<shooting\>\"", ",", "\"\<suicide\>\"", ",", 
+     "\"\<wedding\>\""}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8931028457552347`*^9, 3.893102943762892*^9}, 
+   3.89310400995509*^9},
+ CellLabel->"In[27]:=",ExpressionUUID->"e5af45e9-5009-4c1b-a64f-2bd0405efd55"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pre", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<an\>\"", ",", "\"\<an\>\"", ",", "\"\<a\>\"", ",", "\"\<a\>\"", ",", 
+     "\"\<an\>\"", ",", "\"\<an\>\"", ",", "\"\<a\>\"", ",", "\"\<a\>\"", 
+     ",", "\"\<a\>\"", ",", "\"\<a\>\"", ",", "\"\<a\>\"", ",", "\"\<a\>\"", 
+     ",", "\"\<a\>\""}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8932797981242247`*^9, 3.893279912549314*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"77516f4f-2ff8-4184-bddf-1ecd996cc82a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"header", "=", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<topic\>\"", ",", "\"\<date\>\"", ",", "\"\< time\>\"", ",", 
+      "\"\<place\>\"", ",", "\"\<url\>\"", ",", "\"\<date published\>\"", 
+      ",", "\"\<article text\>\""}], "}"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.893329326881308*^9, 
+  3.893329332252377*^9}},ExpressionUUID->"afc87656-64d4-4561-97e3-\
+fe4820efccd7"],
+
+Cell[BoxData[
+ RowBox[{"Transpose", "[", 
+  RowBox[{"{", 
+   RowBox[{"pre", ",", "topics"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8932798911592827`*^9, 3.893279898507725*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"d77b9a01-d63a-49c7-ac4d-4db89728d3e4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"For", "[", 
+   RowBox[{
+    RowBox[{"t", "=", "1"}], ",", 
+    RowBox[{"t", "<=", 
+     RowBox[{"Length", "[", "topics", "]"}]}], ",", 
+    RowBox[{"t", "++"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"today", "=", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Import", "[", 
+        RowBox[{"\"\<today_\>\"", "<>", 
+         RowBox[{"topics", "[", 
+          RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<.csv\>\""}], "]"}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"general", "=", 
+      RowBox[{
+       RowBox[{"Import", "[", 
+        RowBox[{
+         RowBox[{"topics", "[", 
+          RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<_general.csv\>\""}], 
+        "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"2", ";;", "All"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "<=", 
+        RowBox[{"Length", "[", "today", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"text", "=", 
+         RowBox[{"today", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2"}], "]"}], "]"}]}], ";", 
+        RowBox[{"url", "=", 
+         RowBox[{"today", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "3"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"text", "!=", "\"\<\>\""}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"datepub", "=", 
+            RowBox[{
+             RowBox[{"Interpreter", "[", "\"\<DateTime\>\"", "]"}], "[", 
+             RowBox[{"today", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", ",", "4"}], "]"}], "]"}], "]"}]}], ";", 
+           RowBox[{"response", "=", 
+            RowBox[{"\"\<The following is about \>\"", "<>", 
+             RowBox[{"pre", "[", 
+              RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< \>\"", "<>", 
+             RowBox[{"topics", "[", 
+              RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<: \>\"", "<>", 
+             RowBox[{"today", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", ",", "5"}], "]"}], "]"}]}]}], 
+           RowBox[{"(*", 
+            RowBox[{"StringReplace", "[", 
+             RowBox[{
+              RowBox[{"today", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "5"}], "]"}], "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\"\<\\n\>\"", "->", "\"\< \>\""}], 
+               RowBox[{"(*", 
+                RowBox[{",", 
+                 RowBox[{"\"\<\\\\\>\"", "->", "\"\< \>\""}]}], "*)"}], 
+               "}"}]}], "]"}], "*)"}], ";", 
+           RowBox[{"datepub1", "=", 
+            RowBox[{"DateString", "[", 
+             RowBox[{
+              RowBox[{"DatePlus", "[", 
+               RowBox[{"datepub", ",", "1"}], "]"}], ",", "\"\<Date\>\""}], 
+             "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"date0", "=", 
+            RowBox[{
+             RowBox[{"DeleteCases", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Interpreter", "[", "\"\<Date\>\"", "]"}], "[", 
+                RowBox[{"TextCases", "[", 
+                 RowBox[{"response", ",", "\"\<Date\>\"", ",", 
+                  RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                  RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}], ",", 
+                  RowBox[{"AcceptanceThreshold", "->", "0.9"}]}], "]"}], 
+                "]"}], ",", "_Failure"}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+           RowBox[{"date1", "=", "date0"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"Not", "[", 
+              RowBox[{"DateObjectQ", "[", "date1", "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"date", "=", 
+               RowBox[{"FindTextualAnswer", "[", 
+                RowBox[{"response", ",", 
+                 RowBox[{"\"\<On what day did the \>\"", "<>", 
+                  RowBox[{"topics", "[", 
+                   RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}], 
+                 ",", 
+                 RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                 RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                "]"}]}], ";", 
+              RowBox[{"date1", "=", 
+               RowBox[{
+                RowBox[{"Interpreter", "[", "\"\<ComputedDate\>\"", "]"}], 
+                "[", 
+                RowBox[{"date", "<>", "\"\< before \>\"", "<>", "datepub1"}], 
+                "]"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"Not", "[", 
+              RowBox[{"DateObjectQ", "[", "date1", "]"}], "]"}], ",", 
+             RowBox[{"date1", "=", 
+              RowBox[{
+               RowBox[{"Interpreter", "[", "\"\<ComputedDate\>\"", "]"}], "[",
+                " ", 
+               RowBox[{
+                RowBox[{"FindTextualAnswer", "[", 
+                 RowBox[{"text", ",", 
+                  RowBox[{"\"\<On what date did the \>\"", "<>", 
+                   RowBox[{"topics", "[", 
+                    RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}],
+                   ",", 
+                  RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                  RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                 "]"}], "<>", "\"\< before \>\"", "<>", "datepub1"}], 
+               "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"Not", "[", 
+              RowBox[{"DateObjectQ", "[", "date1", "]"}], "]"}], ",", 
+             RowBox[{"date1", "=", 
+              RowBox[{
+               RowBox[{"Interpreter", "[", "\"\<ComputedDate\>\"", "]"}], "[",
+                " ", 
+               RowBox[{"FindTextualAnswer", "[", 
+                RowBox[{"response", ",", 
+                 RowBox[{"\"\<On what date did the \>\"", "<>", 
+                  RowBox[{"topics", "[", 
+                   RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}], 
+                 ",", 
+                 RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                 RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                "]"}], "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"Not", "[", 
+              RowBox[{"DateObjectQ", "[", "date1", "]"}], "]"}], ",", 
+             RowBox[{"date1", "=", 
+              RowBox[{
+               RowBox[{"Interpreter", "[", "\"\<ComputedDate\>\"", "]"}], "[",
+                " ", 
+               RowBox[{"FindTextualAnswer", "[", 
+                RowBox[{"text", ",", 
+                 RowBox[{"\"\<On what date did the \>\"", "<>", 
+                  RowBox[{"topics", "[", 
+                   RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}], 
+                 ",", 
+                 RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                 RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                "]"}], "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"time0", "=", 
+            RowBox[{
+             RowBox[{"DeleteCases", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Interpreter", "[", "\"\<Time\>\"", "]"}], "[", 
+                RowBox[{"TextCases", "[", 
+                 RowBox[{"response", ",", "\"\<Time\>\"", ",", 
+                  RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                  RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}], ",", 
+                  RowBox[{"AcceptanceThreshold", "->", "0.9"}]}], "]"}], 
+                "]"}], ",", "_Failure"}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"time1", "=", "time0"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"Not", "[", 
+              RowBox[{"TimeObjectQ", "[", "time1", "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"time", "=", 
+               RowBox[{"FindTextualAnswer", "[", 
+                RowBox[{"response", ",", 
+                 RowBox[{"\"\<At what time of day did the \>\"", "<>", 
+                  RowBox[{"topics", "[", 
+                   RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}], 
+                 ",", 
+                 RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                 RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                "]"}]}], ";", 
+              RowBox[{"time1", "=", 
+               RowBox[{
+                RowBox[{"Interpreter", "[", "\"\<ComputedTime\>\"", "]"}], 
+                "[", "time", "]"}]}], ";"}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"Not", "[", 
+              RowBox[{"TimeObjectQ", "[", "time1", "]"}], "]"}], ",", 
+             RowBox[{"time1", "=", 
+              RowBox[{
+               RowBox[{"Interpreter", "[", "\"\<ComputedTime\>\"", "]"}], "[",
+                " ", 
+               RowBox[{"FindTextualAnswer", "[", 
+                RowBox[{"text", ",", 
+                 RowBox[{"\"\<At what time of day did the \>\"", "<>", 
+                  RowBox[{"topics", "[", 
+                   RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}], 
+                 ",", 
+                 RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                 RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                "]"}], "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"place0", "=", 
+            RowBox[{"CanonicalName", "[", 
+             RowBox[{
+              RowBox[{"DeleteCases", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Interpreter", "[", "\"\<ComputedCity\>\"", "]"}], 
+                 "[", 
+                 RowBox[{"TextCases", "[", 
+                  RowBox[{"response", ",", "\"\<City\>\"", ",", 
+                   RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                   RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}], ",", 
+                   
+                   RowBox[{"AcceptanceThreshold", "->", "0.9"}]}], "]"}], 
+                 "]"}], ",", "_Failure"}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"place1", "=", "place0"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "[", "place1", "]"}], "!=", "3"}], ",", 
+             RowBox[{
+              RowBox[{"place", "=", 
+               RowBox[{"CanonicalName", "[", 
+                RowBox[{"FindTextualAnswer", "[", 
+                 RowBox[{"response", ",", 
+                  RowBox[{"\"\<In what town did the \>\"", "<>", 
+                   RowBox[{"topics", "[", 
+                    RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}],
+                   ",", 
+                  RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                  RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                 "]"}], "]"}]}], ";", 
+              RowBox[{"place1", "=", 
+               RowBox[{"CanonicalName", "[", 
+                RowBox[{
+                 RowBox[{"Interpreter", "[", "\"\<ComputedCity\>\"", "]"}], 
+                 "[", "place", "]"}], "]"}]}]}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Length", "[", "place1", "]"}], "!=", "3"}], ",", 
+             RowBox[{
+              RowBox[{"place", "=", 
+               RowBox[{"FindTextualAnswer", "[", 
+                RowBox[{"text", ",", 
+                 RowBox[{"\"\<In what town did the \>\"", "<>", 
+                  RowBox[{"topics", "[", 
+                   RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\< occur?\>\""}], 
+                 ",", 
+                 RowBox[{"TargetDevice", "->", "\"\<GPU\>\""}], ",", 
+                 RowBox[{"PerformanceGoal", "->", "\"\<Quality\>\""}]}], 
+                "]"}]}], ";", 
+              RowBox[{"place1", "=", 
+               RowBox[{"CanonicalName", "[", 
+                RowBox[{
+                 RowBox[{"Interpreter", "[", "\"\<ComputedCity\>\"", "]"}], 
+                 "[", "place", "]"}], "]"}]}]}]}], "]"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"DateObjectQ", "[", "date1", "]"}], "&&", 
+              RowBox[{"TimeObjectQ", "[", "time1", "]"}], "&&", 
+              RowBox[{
+               RowBox[{"Length", "[", "place1", "]"}], "==", "3"}]}], ",", 
+             RowBox[{
+              RowBox[{"line1", "=", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"topics", "[", 
+                  RowBox[{"[", "t", "]"}], "]"}], ",", 
+                 RowBox[{"DateString", "[", 
+                  RowBox[{"date1", ",", "\"\<ISODate\>\""}], "]"}], ",", 
+                 RowBox[{"DateString", "[", 
+                  RowBox[{"time1", ",", "\"\<Time\>\""}], "]"}], ",", 
+                 "place1", ",", "url", ",", 
+                 RowBox[{"DateString", "[", "datepub", "]"}], ",", "text"}], 
+                "}"}]}], ";", 
+              RowBox[{"PrependTo", "[", 
+               RowBox[{"general", ",", "line1"}], "]"}]}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"DateObjectQ", "[", "date1", "]"}], "&&", 
+              RowBox[{
+               RowBox[{"Length", "[", "place1", "]"}], "==", "3"}], "&&", 
+              RowBox[{"Not", "[", 
+               RowBox[{"TimeObjectQ", "[", "time1", "]"}], "]"}]}], ",", 
+             RowBox[{
+              RowBox[{"line1", "=", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"topics", "[", 
+                  RowBox[{"[", "t", "]"}], "]"}], ",", 
+                 RowBox[{"DateString", "[", 
+                  RowBox[{"date1", ",", "\"\<ISODate\>\""}], "]"}], ",", 
+                 "\"\<Not Discerned\>\"", ",", "place1", ",", "url", ",", 
+                 RowBox[{"DateString", "[", "datepub", "]"}], ",", "text"}], 
+                "}"}]}], ";", 
+              RowBox[{"PrependTo", "[", 
+               RowBox[{"general", ",", "line1"}], "]"}]}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"DateObjectQ", "[", "date1", "]"}], "&&", 
+              RowBox[{
+               RowBox[{"Length", "[", "place1", "]"}], "!=", "3"}], "&&", 
+              RowBox[{"Not", "[", 
+               RowBox[{"TimeObjectQ", "[", "time1", "]"}], "]"}]}], ",", 
+             RowBox[{
+              RowBox[{"line1", "=", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"topics", "[", 
+                  RowBox[{"[", "t", "]"}], "]"}], ",", 
+                 RowBox[{"DateString", "[", 
+                  RowBox[{"date1", ",", "\"\<ISODate\>\""}], "]"}], ",", 
+                 "\"\<Not Discerned\>\"", ",", "\"\<Not Discerned\>\"", ",", 
+                 "url", ",", 
+                 RowBox[{"DateString", "[", "datepub", "]"}], ",", "text"}], 
+                "}"}]}], ";", 
+              RowBox[{"PrependTo", "[", 
+               RowBox[{"general", ",", "line1"}], "]"}]}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";"}]}], "]"}], ";", 
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"topics", "[", 
+         RowBox[{"[", "t", "]"}], "]"}], "<>", "\"\<_general.csv\>\""}], ",", 
+       
+       RowBox[{"Join", "[", 
+        RowBox[{"header", ",", 
+         RowBox[{"DeleteDuplicates", "[", "general", "]"}]}], "]"}]}], 
+      "]"}]}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.893102044830138*^9, 3.893102073293404*^9}, {
+   3.893103329438266*^9, 3.8931037682689466`*^9}, {3.89310380916854*^9, 
+   3.893103994875628*^9}, 3.89310410389678*^9, {3.893104229504455*^9, 
+   3.893104340779771*^9}, {3.893104379079218*^9, 3.8931044116486263`*^9}, {
+   3.893104474764011*^9, 3.893104653832776*^9}, {3.893104697216547*^9, 
+   3.8931047406186123`*^9}, {3.8931047780315523`*^9, 3.8931047804451103`*^9}, 
+   3.893105449035372*^9, {3.893105526631597*^9, 3.893105543536471*^9}, 
+   3.893106183605599*^9, {3.8931066803787537`*^9, 3.893106716000202*^9}, {
+   3.893106759152749*^9, 3.8931067657425528`*^9}, {3.893106798853321*^9, 
+   3.8931068386358347`*^9}, {3.8931074620052223`*^9, 
+   3.8931074675358458`*^9}, {3.8931091058347063`*^9, 3.893109107071824*^9}, {
+   3.893109710245323*^9, 3.893109712183585*^9}, {3.893110579328659*^9, 
+   3.8931106222876043`*^9}, 3.893112086903297*^9, {3.8931122626659117`*^9, 
+   3.89311226410009*^9}, {3.893112975576643*^9, 3.893112992510188*^9}, 
+   3.893115022796536*^9, {3.893115147764661*^9, 3.893115148505541*^9}, {
+   3.893115351067339*^9, 3.893115353201488*^9}, {3.8931367995920687`*^9, 
+   3.893136854591963*^9}, {3.893143365942048*^9, 3.893143436158515*^9}, {
+   3.893143986790468*^9, 3.89314399762812*^9}, {3.893144197018626*^9, 
+   3.893144218141445*^9}, {3.893144277478854*^9, 3.8931443328944197`*^9}, {
+   3.893145700575914*^9, 3.893145729044606*^9}, {3.893145877137638*^9, 
+   3.893145899767943*^9}, {3.893146037442731*^9, 3.893146038182908*^9}, 
+   3.8931465845062637`*^9, {3.893146627388381*^9, 3.893146648862172*^9}, {
+   3.893146741638225*^9, 3.893146778766103*^9}, {3.8931468108638067`*^9, 
+   3.89314681221469*^9}, {3.893146845882394*^9, 3.8931468465250397`*^9}, {
+   3.893146960126505*^9, 3.893146961609502*^9}, {3.8931470919770184`*^9, 
+   3.893147100983418*^9}, {3.8931983773893538`*^9, 3.893198388273037*^9}, {
+   3.89319843191439*^9, 3.893198481185746*^9}, {3.8931985902299356`*^9, 
+   3.893198664051146*^9}, {3.89319870928356*^9, 3.8931987155841017`*^9}, {
+   3.893215449485503*^9, 3.893215531686664*^9}, {3.893215570870256*^9, 
+   3.893215775568243*^9}, {3.893215843330858*^9, 3.893215884435869*^9}, {
+   3.8932162783410187`*^9, 3.893216290928646*^9}, {3.8932178982509937`*^9, 
+   3.893217922087584*^9}, {3.8932180061343937`*^9, 3.893218016692253*^9}, 
+   3.893277103154819*^9, {3.8932771424979267`*^9, 3.893277143342988*^9}, {
+   3.893277628481587*^9, 3.893277659820303*^9}, {3.893277844708556*^9, 
+   3.893277864086174*^9}, {3.8932780952759953`*^9, 3.893278125101544*^9}, {
+   3.8932784877356367`*^9, 3.893278507411852*^9}, {3.893278537679202*^9, 
+   3.893278576919633*^9}, {3.893279079721505*^9, 3.8932790971682367`*^9}, {
+   3.893279597270948*^9, 3.89327959760306*^9}, {3.8932796286455173`*^9, 
+   3.893279629157645*^9}, {3.89327977216168*^9, 3.893279787458252*^9}, {
+   3.893279935239551*^9, 3.893279959206171*^9}, {3.893281947878601*^9, 
+   3.8932819605553093`*^9}, {3.8932821665136013`*^9, 3.893282236651187*^9}, {
+   3.8932823185888*^9, 3.893282343111849*^9}, 3.893283623002075*^9, {
+   3.893284153672434*^9, 3.893284170803812*^9}, {3.8932842966861553`*^9, 
+   3.8932843242642813`*^9}, {3.8932843674975233`*^9, 3.893284447845311*^9}, 
+   3.893284478722777*^9, {3.8932845213215227`*^9, 3.893284746890477*^9}, {
+   3.893284799311467*^9, 3.8932848097633123`*^9}, {3.893284847226447*^9, 
+   3.893285129544909*^9}, 3.893285166557777*^9, {3.893285213007465*^9, 
+   3.893285337420031*^9}, {3.89328540724118*^9, 3.893285429290462*^9}, {
+   3.893285500441923*^9, 3.893285502135069*^9}, {3.893285615638686*^9, 
+   3.893285676286653*^9}, 3.893285744368772*^9, {3.893285791445369*^9, 
+   3.893285827739305*^9}, {3.8932861656744223`*^9, 3.89328621024682*^9}, {
+   3.8932863252085667`*^9, 3.893286336585137*^9}, {3.893286648253653*^9, 
+   3.89328665550697*^9}, {3.893286757704274*^9, 3.893286779268448*^9}, {
+   3.893287676625415*^9, 3.893287755040801*^9}, {3.8932879007937593`*^9, 
+   3.8932879804850483`*^9}, {3.893288156464719*^9, 3.893288185757947*^9}, {
+   3.893289818411662*^9, 3.893289952244257*^9}, 3.893289989954422*^9, {
+   3.89329004901477*^9, 3.893290060448469*^9}, {3.893290574644863*^9, 
+   3.893290581373064*^9}, {3.893325824864978*^9, 3.893325885752347*^9}, {
+   3.89332620356222*^9, 3.893326213038896*^9}, {3.8933271319394083`*^9, 
+   3.893327143969293*^9}, 3.893329142492361*^9, {3.893329232494999*^9, 
+   3.89332923693571*^9}, {3.893329365470949*^9, 3.893329399418077*^9}, {
+   3.893329454130965*^9, 
+   3.893329498568162*^9}},ExpressionUUID->"06eb2825-bb43-490f-8bfc-\
+a00ca5115509"]
+},
+WindowSize->{860.25, 1028.25},
+WindowMargins->{{72.75, Automatic}, {Automatic, 18.75}},
+CellContext->Notebook,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (February 2, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"acb4b1a3-c52b-462c-a8e5-35fbde63a485"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 232, 5, 29, "Input",ExpressionUUID->"acc3a87d-815d-4f68-8050-98f3e161a805"],
+Cell[796, 27, 616, 12, 51, "Input",ExpressionUUID->"e5af45e9-5009-4c1b-a64f-2bd0405efd55"],
+Cell[1415, 41, 506, 10, 29, "Input",ExpressionUUID->"77516f4f-2ff8-4184-bddf-1ecd996cc82a"],
+Cell[1924, 53, 440, 11, 33, "Input",ExpressionUUID->"afc87656-64d4-4561-97e3-fe4820efccd7"],
+Cell[2367, 66, 263, 5, 29, "Input",ExpressionUUID->"d77b9a01-d63a-49c7-ac4d-4db89728d3e4"],
+Cell[2633, 73, 20909, 422, 1672, "Input",ExpressionUUID->"06eb2825-bb43-490f-8bfc-a00ca5115509"]
+}
+]
+*)
+
