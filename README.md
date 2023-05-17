@@ -19,7 +19,7 @@ Currently we are considering only in English the following topics and from Googl
 - 'suicide',
 - 'wedding'.
 
-To suggest new topics and languages, etc., contact us here: https://www.ayurastro.com/contact.html#/
+To suggest new topics and languages, etc., contact us [here](https://www.ayurastro.com/contact.html#/).
 
 All text copyrights are held within the article urls.
 
