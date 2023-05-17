@@ -1,4 +1,4 @@
-#this is run daily
+#this is run daily --there is presently an upper linmit of 100 articles per day per topic
 import csv
 import datetime
 import openai
