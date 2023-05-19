@@ -3,9 +3,6 @@ import csv
 import datetime
 import openai
 from gnews import GNews
-#import datetime
-#from datetime import date
-#import numpy as np
 from dateutil.tz import gettz
 
 openai.api_key = 'redacted'
