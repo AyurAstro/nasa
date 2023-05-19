@@ -41,7 +41,7 @@ for topic in topics:
                 response = openai.Completion.create(
                   model="text-curie-001",
                   prompt="From the following article, tell me on what day, at what time, and in what town the "+topic+" occurred.\n\n"+text[0:7500]+"...",
-                  temperature=0,
+                  temperature=0.3,
                   max_tokens=80,
                   top_p=1
                 )
