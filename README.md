@@ -23,4 +23,4 @@ To suggest new topics and languages, etc., contact us [here](https://www.ayurast
 
 All text copyrights are held within the article urls.
 
-[Explanatory paper](https://www.scribd.com/document/424897774/news-aggregator-service-for-astrology?secret_password=PqwxnQLs6OPM6HYaFpJv)
+[Explanatory paper](https://www.academia.edu/101995088/NEWS_AGGREGATOR_SERVICE_FOR_ASTROLOGY_NASA_A_FREE_RESEARCH_TOOL)
