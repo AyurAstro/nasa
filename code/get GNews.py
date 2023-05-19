@@ -1,4 +1,5 @@
-#import os
+# evaluated daily
+
 import csv
 import datetime
 import openai
