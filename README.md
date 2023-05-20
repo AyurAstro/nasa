@@ -13,7 +13,6 @@ Currently we are considering only in English the following topics and from Googl
 - 'explosion',
 - 'fire',
 - 'game',
-- 'hurricane',
 - 'miracle',
 - 'shooting',
 - 'suicide',
