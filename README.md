@@ -9,13 +9,13 @@ Currently we are considering the following topics only in English and from Googl
 - 'assassination',
 - 'birth',
 - 'coup',
-- 'eruption',
 - 'explosion',
 - 'fire',
 - 'game',
 - 'miracle',
 - 'shooting',
 - 'suicide',
+- 'volcano eruption'
 - 'wedding'.
 
 We are open to collecting data for your project. Suggest new topics and languages, *etc.*, [here](https://www.ayurastro.com/contact.html#/).
