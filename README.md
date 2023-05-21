@@ -2,7 +2,7 @@
 ## News Aggregator Service for Astrology
 
 ![image](https://github.com/AyurAstro/nasa/assets/6325848/8c527830-4a65-491c-baac-607819e48fb0)
-Collection daily from May 14, 2023 onwards. Consult the csv files above to access and download the data relevant to your topic of interest.
+Collection daily from May 14, 2023 onwards. Consult the csv files above to access and download the data relevant to your topic of interest. Some 60+ new events on average are added per topic *daily*.
 
 Currently we are considering the following topics only in English and from Google News only:
 - 'accident',
