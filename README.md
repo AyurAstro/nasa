@@ -6,13 +6,13 @@ Collection daily from May 14, 2023 onwards. Consult the csv files above to acces
 
 Currently we are considering the following topics only in English and from Google News only:
 - 'accident',
-- 'assassination',
 - 'birth',
-- 'coup',
 - 'explosion',
 - 'fire',
 - 'game',
-- 'miracle',
+- 'political assassination',
+- 'political coup',
+- 'religious miracle',
 - 'shooting',
 - 'suicide',
 - 'volcano eruption'
