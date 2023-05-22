@@ -8,7 +8,7 @@ from dateutil.tz import gettz
 
 openai.api_key = 'redacted'
 
-topics=['accident','assassination','birth','coup','eruption','explosion','fire','game','hurricane','miracle','shooting','suicide','wedding']
+topics=['accident','political assassination','birth','political coup','volcano eruption','explosion','fire','game','religious miracle','shooting','suicide','wedding']
 
 google_news = GNews(language='en', exclude_websites=['hsvvoice.com','sunnewsonline.com','mckenziebanner.com','montrealgazette.com','legacy.com','publicpower.org','uniindia.com','environewsnigeria.com','ottawacitizen.com','bangkokpost.com','wng.com','eurasiareview.com','nationalpost.com','bleedingcool.com','keyc.com','tapinto.net','fashionista.com','romesentinel.com','northsidesun.com','tallahatchienews.ms','abc.net.au','rockpapershotgun.com','spokanecity.org','canyoncourier.com','lfpress.com','beincrypto.com','si.com','business2community.com','nst.com','healthnews.com','calgaryherald.com','kidspot.com','yahoo.com', 'cnn.com', 'imdb.com', 'forbes.com', 'newsweek.com', 'blackstarnews.com', 'barrons.com'])
 
