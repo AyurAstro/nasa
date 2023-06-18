@@ -3,10 +3,15 @@
 import csv
 import datetime
 import openai
+import json
 from gnews import GNews
 from dateutil.tz import gettz
 
-openai.api_key = 'redacted'
+# Read the OpenAI API key from the config file
+with open('config.json', 'r') as file:
+    config = json.load(file)
+
+openai.api_key = config['openai_key']
 
 topics=['accident','political assassination','birth','political coup','volcano eruption','explosion','fire','game','religious miracle','shooting','suicide','wedding']
 
