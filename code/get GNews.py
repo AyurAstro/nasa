@@ -15,8 +15,6 @@ openai.api_key = config['openai_key']
 
 topics=['accident','political assassination','birth','political coup','volcano eruption','explosion','fire','game','religious miracle','shooting','suicide','wedding']
 
-#topics=['shooting','suicide','wedding']
-
 google_news = GNews(language='en', exclude_websites=['etnow.com','charlotteobserver.com','says.com','seattletimes.com','news7noida.com','iheart.com','parade.com','triblive.com','wowt.com','mahoningmatters.com','rvtravel.com','newindianexpress.com','bizjournals.com','chronline.com','middle-east-online.com','ntnews.com.au','onenews.ph','wsj.com','dailytelegraph.com.au','thechronicle.com.au','bringmethenews.com','al.com','herald-citizen.com','thehockeynews.com','newsobserver.com','torontosun.com','news9.com','creators.com','thestreet.com','popkavoice.com','safety4sea.com','theolivepress.es','wafa.ps','news.com.au','windsorstar.com','newsdaytonabeach.com','thejournal-news.net','hsvvoice.com','sunnewsonline.com','mckenziebanner.com','montrealgazette.com','legacy.com','publicpower.org','uniindia.com','environewsnigeria.com','ottawacitizen.com','bangkokpost.com','wng.com','eurasiareview.com','nationalpost.com','bleedingcool.com','keyc.com','tapinto.net','fashionista.com','romesentinel.com','northsidesun.com','tallahatchienews.ms','abc.net.au','rockpapershotgun.com','spokanecity.org','canyoncourier.com','lfpress.com','beincrypto.com','si.com','business2community.com','nst.com','healthnews.com','calgaryherald.com','kidspot.com','yahoo.com', 'cnn.com', 'imdb.com', 'forbes.com', 'newsweek.com', 'blackstarnews.com', 'barrons.com'])
 
 now=datetime.datetime.now(gettz('US/Mountain'))
