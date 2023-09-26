@@ -34,4 +34,4 @@ We are open to collecting data for your project. Suggest new topics and language
 
 All text copyrights are held within the article urls.
 
-[Explanatory paper](https://www.academia.edu/101995088/NEWS_AGGREGATOR_SERVICE_FOR_ASTROLOGY_NASA_A_FREE_RESEARCH_TOOL)
+[Explanatory paper -- also available above](https://www.academia.edu/101995088/NEWS_AGGREGATOR_SERVICE_FOR_ASTROLOGY_NASA_A_FREE_RESEARCH_TOOL)
